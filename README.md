@@ -21,3 +21,25 @@ Beta / In Development
 CPSC 4910 - Senior Capstone
 Fall 2026
 University of Tennessee at Chattanooga
+
+## Development setup
+
+Campus Market uses HTML, CSS, and JavaScript on the frontend, PHP on the backend, and MySQL for persistent data. It starts without a framework so the team can learn and divide the application clearly.
+
+Open this repository folder in PhpStorm, then follow the local setup guide. The starter includes a homepage, a JSON health endpoint, environment configuration, a PDO database connection, and the initial schema.
+
+- [Project structure and starter overview](README.starter.md)
+- [Local setup guide](docs/SETUP.md)
+- [Git workflow](docs/WORKFLOW.md)
+- [Sprint 1 kickoff checklist](docs/SPRINT-1.md)
+- [Technical decisions](docs/DECISIONS.md)
+
+## Quick start
+
+After installing PHP 8.2 or newer and creating `.env` from `.env.example`:
+
+```powershell
+.\scripts\start-app.ps1
+```
+
+Open <http://localhost:8000>. Check the backend and database at <http://localhost:8000/api/health>.

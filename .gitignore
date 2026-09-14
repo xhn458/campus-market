@@ -1,0 +1,37 @@
+# Local secrets; commit templates only.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+credentials.json
+
+# Dependencies and generated output
+vendor/
+node_modules/
+dist/
+build/
+coverage/
+.next/
+.nuxt/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.tsbuildinfo
+
+# Local databases and uploaded files
+*.sqlite
+*.sqlite3
+*.db
+uploads/
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
