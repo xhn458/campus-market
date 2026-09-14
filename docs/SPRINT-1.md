@@ -1,12 +1,12 @@
 # Sprint 1 kickoff
 
-The user reports that GitHub and the Jira page exist. Team access, workflow configuration, and Sprint 1 creation still need verification. This file does not change Jira ticket statuses.
+The GitLab project and Jira board exist. Team access and each member's local setup still need verification. This file does not change Jira ticket statuses.
 
 ## Start here
 
 | Order | Tickets | Next action | Suggested owners |
 | --- | --- | --- | --- |
-| 1 | SCRUM-126–SCRUM-129 | Connect this folder to GitHub; confirm invitations, Sprint 1, and Jira workflow | Jereme |
+| 1 | SCRUM-126–SCRUM-129 | Confirm GitLab invitations, Sprint 1, and the Jira workflow | Jereme |
 | 2 | SCRUM-130–SCRUM-132, SCRUM-139 | Review and publish this starter; agree on branching | Jereme / Christina / Chase / Ryan |
 | 3 | SCRUM-133–SCRUM-135 | Record team agreement on HTML/CSS/JavaScript, PHP, and MySQL | Emmelly / Chase / Ryan / Jereme |
 | 4 | SCRUM-136–SCRUM-138 | Scaffold the app, implement configuration, write actual run commands, and verify all five setups | Christina / Chase |
@@ -32,5 +32,3 @@ Authentication and the marketplace feature tickets are not implemented by this f
 A teammate can follow the setup guide, open the app, register with an allowed test university email, complete test verification, log in, see a basic marketplace, and log out. Invalid domains and duplicate accounts are rejected; logged-out requests cannot access protected data.
 
 Confirm sprint dates and team capacity before treating all 60 tickets as a single sprint commitment. Keep unselected tickets in the backlog.
-
-Igonre this lien this is a test
