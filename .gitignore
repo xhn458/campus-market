@@ -31,6 +31,7 @@ __pycache__/
 uploads/
 public/uploads/*
 !public/uploads/.gitkeep
+database/*.local.sql
 
 # Editor and OS files
 .idea/
