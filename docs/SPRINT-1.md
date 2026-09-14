@@ -32,3 +32,5 @@ Authentication and the marketplace feature tickets are not implemented by this f
 A teammate can follow the setup guide, open the app, register with an allowed test university email, complete test verification, log in, see a basic marketplace, and log out. Invalid domains and duplicate accounts are rejected; logged-out requests cannot access protected data.
 
 Confirm sprint dates and team capacity before treating all 60 tickets as a single sprint commitment. Keep unselected tickets in the backlog.
+
+Igonre this lien this is a test
