@@ -6,6 +6,8 @@
 *.pem
 *.key
 credentials.json
+certificates/*.pem
+!certificates/.gitkeep
 
 # Dependencies and generated output
 vendor/

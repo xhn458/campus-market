@@ -30,6 +30,7 @@ Clone the project from [GitLab](https://gitlab.com/campus-market-team-3/campus-m
 
 - [Project structure and starter overview](README.starter.md)
 - [Local setup guide](docs/SETUP.md)
+- [Shared MySQL setup](docs/SHARED-DATABASE.md)
 - [GitLab and Jira workflow](docs/WORKFLOW.md)
 - [Sprint 1 kickoff checklist](docs/SPRINT-1.md)
 - [Technical decisions](docs/DECISIONS.md)
