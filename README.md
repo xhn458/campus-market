@@ -26,11 +26,11 @@ University of Tennessee at Chattanooga
 
 Campus Market uses HTML, CSS, and JavaScript on the frontend, PHP on the backend, and MySQL for persistent data. It starts without a framework so the team can learn and divide the application clearly.
 
-Open this repository folder in PhpStorm, then follow the local setup guide. The starter includes a homepage, a JSON health endpoint, environment configuration, a PDO database connection, and the initial schema.
+Clone the project from [GitLab](https://gitlab.com/campus-market-team-3/campus-market), open the repository folder in PhpStorm, and follow the local setup guide. The starter includes a homepage, a JSON health endpoint, environment configuration, a PDO database connection, and the initial schema.
 
 - [Project structure and starter overview](README.starter.md)
 - [Local setup guide](docs/SETUP.md)
-- [Git workflow](docs/WORKFLOW.md)
+- [GitLab and Jira workflow](docs/WORKFLOW.md)
 - [Sprint 1 kickoff checklist](docs/SPRINT-1.md)
 - [Technical decisions](docs/DECISIONS.md)
 
