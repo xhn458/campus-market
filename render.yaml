@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: campus-market-team-3
+    runtime: docker
+    plan: free
+    branch: main
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DB_HOST
+        value: campus-market-mysql-campus-market-team-3.l.aivencloud.com
+      - key: DB_PORT
+        value: "24639"
+      - key: DB_DATABASE
+        value: campus_market
+      - key: DB_USERNAME
+        value: campus_market_app
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSL_CA
+        value: /etc/secrets/ca.pem
+
