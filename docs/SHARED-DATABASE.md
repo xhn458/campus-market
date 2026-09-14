@@ -8,10 +8,10 @@ The team uses one hosted Aiven for MySQL service as the shared development datab
 - Service: `campus-market-mysql`
 - Host: `campus-market-mysql-campus-market-team-3.l.aivencloud.com`
 - Port: `24639`
-- Database: `defaultdb`
+- Database: `campus_market`
 - Application user: `campus_market_app`
 
-Each teammate must get the generated application password through a private channel and download the CA certificate from the service Overview page. Save the certificate as `certificates/aiven-ca.pem`.
+Each teammate must get the generated application password through a private channel and download the CA certificate from the service Overview page. Save the certificate as `certificates/ca.pem`.
 
 The password and CA file must not be committed to GitLab, placed in Jira, or included in screenshots. Rotate the password if it is exposed or when a member leaves the team.
 
@@ -20,14 +20,14 @@ The password and CA file must not be committed to GitLab, placed in Jira, or inc
 From the project folder, replace the placeholders with the values shown by Aiven and run:
 
 ```powershell
-mysql --host=campus-market-mysql-campus-market-team-3.l.aivencloud.com --port=24639 --user=campus_market_app --password --ssl-mode=VERIFY_CA --ssl-ca=certificates/aiven-ca.pem --execute="source database/schema.sql" defaultdb
+mysql --host=campus-market-mysql-campus-market-team-3.l.aivencloud.com --port=24639 --user=campus_market_app --password --ssl-mode=VERIFY_CA --ssl-ca=certificates/ca.pem --execute="source database/schema.sql" campus_market
 ```
 
 The command asks for the shared database password without displaying it. Run the schema again after approved database changes; its current statements are safe to repeat.
 
 ## Every teammate: create two private environments
 
-1. Download the same Aiven CA certificate into `certificates/aiven-ca.pem`.
+1. Download the same Aiven CA certificate into `certificates/ca.pem`.
 2. Create one local profile and one shared profile:
 
 ```powershell
@@ -60,19 +60,21 @@ Restart the PHP server after switching, then open <http://localhost:8000/api/hea
 
 ## Refresh local MySQL from the shared server
 
-First export the shared database into an ignored temporary file:
+Run the included refresh command:
 
 ```powershell
-mysqldump --host=campus-market-mysql-campus-market-team-3.l.aivencloud.com --port=24639 --user=campus_market_app --password --ssl-mode=VERIFY_CA --ssl-ca=certificates/aiven-ca.pem --single-transaction --result-file=database/shared-copy.local.sql defaultdb
+.\scripts\sync-shared-to-local.ps1
 ```
 
-Then import that copy into the developer's local `campus_market` database:
+Type `COPY` when prompted, then enter the Aiven application password. The script uses `.env.shared` when present or the committed shared template otherwise. It uses `.env.local` when present or the active local `.env` otherwise. It downloads all structure and data from Aiven, replaces the local `campus_market` database, verifies the result, and removes its temporary dump. Passwords are not displayed or placed in command history.
+
+For an automated refresh without the prompt, use:
 
 ```powershell
-mysql --host=127.0.0.1 --port=3306 --user=campus_market_app --password --execute="source database/shared-copy.local.sql" campus_market
+.\scripts\sync-shared-to-local.ps1 -Force
 ```
 
-These commands prompt separately for the shared and local passwords. The dump is ignored by Git and should be deleted when it is no longer needed. Refreshing replaces or updates local test data only; teammates should never experiment directly against the shared database.
+Refreshing replaces the complete local database. Teammates should never experiment directly against the shared database.
 
 Start the application after selecting the desired environment:
 
@@ -84,7 +86,7 @@ Each teammate still uses `localhost` for the PHP website. Only the `DB_HOST` poi
 
 ## Connect with SQLyog
 
-Create a new MySQL connection using the Aiven host, port, service username, password, and `defaultdb`. In the connection's SSL settings, enable SSL and select `certificates/aiven-ca.pem` as the CA certificate. Test the connection before saving it.
+Create a new MySQL connection using the Aiven host, port, service username, password, and `campus_market`. In the connection's SSL settings, enable SSL and select `certificates/ca.pem` as the CA certificate. Test the connection before saving it.
 
 Use the application user for normal development. Keep the Aiven administrator credentials with the project manager for user management and recovery.
 
